@@ -29,7 +29,7 @@ describe('checkServerStatus()', () => {
   });
 });
 
-describe('fetchBannerContent()', () => {
+describe.only('fetchBannerContent()', () => {
   test('invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);

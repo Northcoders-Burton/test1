@@ -1,8 +1,17 @@
+const { bannerContent } = require('../utils/database');
 const request = require('../utils/server');
 
-function checkServerStatus() {}
+function checkServerStatus(callBackFn) {
+  request('/status',callBackFn)
+}
 
-function fetchBannerContent() {}
+function fetchBannerContent(callBackFn,...bannerContent) {
+  request('/banner',(err,data) => {
+    const newData = {...data}
+    newData.copyrightYear = 2023
+    callBackFn(err,newData)
+  })
+}
 
 function fetchAllOwners() {}
 
