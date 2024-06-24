@@ -43,7 +43,7 @@ describe('fetchBannerContent()', () => {
       done();
     }
     fetchBannerContent(testCB);
-  });
+  })
   test('invokes the callback with the updated banner content object', done => {
     function testCB(err, content) {
       expect(content).toEqual({
@@ -96,7 +96,7 @@ describe('fetchAllOwners()', () => {
   });
 });
 
-describe.only('fetchCatsByOwner()', () => {
+describe('fetchCatsByOwner()', () => {
   test('invokes the callback with no error when given a valid owner', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -128,7 +128,7 @@ describe.only('fetchCatsByOwner()', () => {
   });
 });
 
-describe('fetchCatPics()', () => {
+describe.only('fetchCatPics()', () => {
   test('invokes the callback function with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);

@@ -29,7 +29,27 @@ function fetchCatsByOwner(ownerName, callBackFn) {
 }
 
 
-function fetchCatPics() {}
+function fetchCatPics(catPicsNames,callBackFn) {
+  const catPicNamesArray = []
+  let counter = 0
+  if(catPicsNames.length === 0){
+    callBackFn(null,catPicsNames)
+  }
+  catPicsNames.forEach((cat) => {
+    request(`/pics/${cat}`,(err,data) => {
+      if(err !== null){
+        catPicNamesArray.push('placeholder.jpg')
+        counter++
+      }else{
+        catPicNamesArray.push(data)
+        counter++
+      }
+      if(counter === catPicsNames.length){
+        callBackFn(err,catPicNamesArray)
+      }
+    })
+  })
+}
 
 function fetchAllCats() {}
 
