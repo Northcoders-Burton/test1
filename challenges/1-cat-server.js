@@ -13,9 +13,21 @@ function fetchBannerContent(callBackFn,...bannerContent) {
   })
 }
 
-function fetchAllOwners() {}
+function fetchAllOwners(callBackFn) {
+  request('/owners',(err,data) => {
+    const newData = [...data] // lowercase owner names
+    const lowerCaseNewData = newData.map( word => word.toLowerCase() )
+    callBackFn(err,lowerCaseNewData)
+  })
+}
 
-function fetchCatsByOwner() {}
+function fetchCatsByOwner(ownerName, callBackFn) {
+  //request('/owners/' + ownerName + '/cats/',(err,data) => {
+  request(`/owners/${ownerName}/cats/`,(err,data) => {
+  callBackFn(err,data);
+  })
+}
+
 
 function fetchCatPics() {}
 

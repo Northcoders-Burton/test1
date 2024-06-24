@@ -29,7 +29,7 @@ describe('checkServerStatus()', () => {
   });
 });
 
-describe.only('fetchBannerContent()', () => {
+describe('fetchBannerContent()', () => {
   test('invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -96,7 +96,7 @@ describe('fetchAllOwners()', () => {
   });
 });
 
-describe('fetchCatsByOwner()', () => {
+describe.only('fetchCatsByOwner()', () => {
   test('invokes the callback with no error when given a valid owner', done => {
     function testCB(err) {
       expect(err).toBe(null);
