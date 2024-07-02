@@ -51,7 +51,10 @@ function fetchCatPics(catPicsNames,callBackFn) {
   })
 }
 
-function fetchAllCats() {}
+function fetchAllCats(callBackFn) {
+  callBackFn(err,fetchAllOwners,fetchCatsByOwner)
+  
+}
 
 function fetchOwnersWithCats() {}
 
